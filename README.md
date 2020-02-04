@@ -8,4 +8,4 @@ This repository contains my completed prework assignments for the 401 .NET cours
 
 ## Table Of Contents
 
-#### [Mindset](https://github.com/robertjnielsen/cf-dotnet-prework/mindset.md)  
+#### [Mindset](https://github.com/robertjnielsen/cf-dotnet-prework/blob/master/mindset.md)  
