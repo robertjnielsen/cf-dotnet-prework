@@ -10,7 +10,7 @@ These are the five highlights I took from all of the combined readings / videos 
 
 - Code written in a .NET language is managed by the CLR, which compiles and manages our high-level code in a IL format, which is _then_ compiled as it runs using JIT compiling.
 
-- 
+- .NET Core is an implementation of .NET that supports multiple operating systems and platforms, ranging from various desktop operating systems, to mobile devices, cloud applications, and IoT platforms as well.
 
 - 
 
@@ -18,7 +18,24 @@ These are the five highlights I took from all of the combined readings / videos 
 
 #### C# Version History
 
+C# version 1.0 released with Visual Studio .NET 2002. It's intended objective was to be a;
+> "simple, modern, general-purpose object-oriented language."
+
+Version 1.0 lacked many of the common capablities that developers would be used to or even expect these days.
+
+By version 2.0, C# had really started to distinguish itself from Java, and focused on targeting some serious and well known developer pain points.
+
+C# continued to develop, and several versions were subsequentially released, each bringing with it major improvements and capabilities.
+
+Visual Studio 2017 released with C# version 7.0, and along with it came the capability of .NET Core and the ability to target and develop for varying operating systems, devices, IoT and the cloud.
+
+For an in depth look into the changes made with each version, check out [this link](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history).
+
 #### .NET Core Guide
+
+.NET Core is an open-source, general purpose implementation of Microsoft's .NET platform that is maintained by both Microsoft and the .NET community on GitHub.
+
+.NET Core is cross-platform, meaning that it supports multiple operating systems (to include Windows, macOS and Linux), and can build applications on mobile devices, cloud platforms, and IoT platforms / devices.
 
 ## Tooling
 
