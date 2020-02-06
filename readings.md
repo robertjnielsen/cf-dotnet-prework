@@ -148,3 +148,12 @@ Arrays are the bee's knees!
 
 #### C# 7.0 In A Nutshell
 
+##### Chapter One: Introducing C# and the .NET Framework
+
+C# is a general purpose, strongly-typed, object-oriented language. C# code runs on the .NET Framework.
+
+.NET (and it's derivatives) are the workhorse behind C# (and other languages). The .NET Framework consists of the CLR, which manages, compiles and executes our C# code. .NET also holds all of the libraries that our C# code will be utilizing.
+
+##### Chapter Two: C# Language Basics
+
+C# code segments are sorted into **Classes**, which are then further broken down by **namespaces**. This keeps our code organized, and helps declare object types for our code segments / blocks.
