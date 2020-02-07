@@ -9,22 +9,15 @@ namespace cfDotNetPreworkDSA
             string userName = GreetUser();
 
             int[] maxResultArray = ArrayMaxChoices();
-
             int maxSelector = ArrayMaxSelector(maxResultArray);
-
             ArrayMaxResult(maxResultArray, maxSelector, userName);
         }
 
         static string GreetUser()
         {
             Console.WriteLine("Welcome! What's your name?");
-
             string userName = Console.ReadLine();
-
-            Console.WriteLine();
-            Console.WriteLine($"Welcome {userName}, let's play a game.");
-            Console.WriteLine();
-
+            Console.WriteLine($"\nWelcome {userName}, let's play a game.\n");
             return userName;
         }
 
@@ -34,20 +27,29 @@ namespace cfDotNetPreworkDSA
 
             Console.WriteLine("The first thing I'm going to ask you to do is to give me five numbers, each between 1 and 10.");
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < maxResultArray.Length; i++)
             {
-                Console.WriteLine();
-                Console.WriteLine($"Number {i + 1}: Please give me a number between 1 and 10.");
-                int num = Convert.ToInt32(Console.ReadLine());
-                if (num >= 1 && num <= 10)
+                Console.Write($"\nNumber {i + 1}) Please give me a number between 1 and 10:  ");
+                int num;
+                if (int.TryParse(Console.ReadLine(), out num))
                 {
-                    maxResultArray[i] = num;
+                    if (num >= 1 && num <= 10)
+                    {
+                        maxResultArray[i] = num;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nYour number must be between 1 and 10.");
+                        i--;
+                    }
+
                 }
                 else
                 {
-                    Console.WriteLine("Your number must be between 1 and 10.");
+                    Console.WriteLine("\nPlease enter a number between 1 and 10.");
                     i--;
                 }
+
             }
 
             return maxResultArray;
@@ -72,8 +74,8 @@ namespace cfDotNetPreworkDSA
 
             Console.WriteLine();
             Console.WriteLine(maxArray);
-            Console.WriteLine();
-            Console.WriteLine("Awesome! Now I'm going to ask you for one more number. Pleas choose one of the numbers from your list.");
+            Console.WriteLine("\nAwesome! Now I'm going to ask you for one more number.");
+            Console.Write("Please choose one of the numbers from your list:  ");
             int maxSelector = Convert.ToInt32(Console.ReadLine());
             return maxSelector;
         }
