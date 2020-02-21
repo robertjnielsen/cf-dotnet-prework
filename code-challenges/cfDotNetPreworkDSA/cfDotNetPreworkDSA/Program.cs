@@ -32,9 +32,7 @@ namespace cfDotNetPreworkDSA
                 switch (menuChoice)
                 {
                     case 1:
-                        int[] maxResultArray = ArrayMaxChoices();
-                        int maxSelector = ArrayMaxSelector(maxResultArray);
-                        ArrayMaxResult(maxResultArray, maxSelector, userName);
+                        ArrayMaxSuper(userName);
                         break;
                     case 2:
                         LeapYearCalculator(userName);
@@ -55,6 +53,13 @@ namespace cfDotNetPreworkDSA
                 Console.WriteLine("Please enter a menu number.\n");
                 MainMenu(userName);
             }
+        }
+
+        static void ArrayMaxSuper(string userName)
+        {
+            int[] maxResultArray = ArrayMaxChoices();
+            int maxSelector = ArrayMaxSelector(maxResultArray);
+            ArrayMaxResult(maxResultArray, maxSelector, userName);
         }
 
         static int[] ArrayMaxChoices()
@@ -135,6 +140,41 @@ namespace cfDotNetPreworkDSA
 
             Console.WriteLine();
             Console.WriteLine($"{userName}, your score is: {score}");
+            Console.WriteLine("Press (ENTER / RETURN) to continue...");
+            Console.ReadLine();
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Would you like to run this application again?\n");
+                Console.WriteLine("1: Run Again \n2: Main Menu \n3: Quit Application\n");
+                Console.Write("Enter a menu number:  ");
+                int playAgain;
+                if (int.TryParse(Console.ReadLine(), out playAgain))
+                {
+                    switch (playAgain)
+                    {
+                        case 1:
+                            ArrayMaxSuper(userName);
+                            break;
+                        case 2:
+                            MainMenu(userName);
+                            break;
+                        case 3:
+                            Environment.Exit(0);
+                            break;
+                        default:
+                            Console.WriteLine("Let's try this again...");
+                            Console.ReadLine();
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Let's try this again...");
+                    Console.ReadLine();
+                }
+            }
         }
 
         static void LeapYearCalculator(string userName)
@@ -205,6 +245,25 @@ namespace cfDotNetPreworkDSA
                     Console.WriteLine("Let's try this again...");
                     Console.ReadLine();
                 }
+            }
+        }
+
+        static void PerfectSequence(int[] arr)
+        {
+            int sum = 0;
+            int prod = 1;
+            foreach (int i in arr)
+            {
+                sum += i;
+                prod *= i;
+            }
+            if (sum == prod)
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
             }
         }
     }
