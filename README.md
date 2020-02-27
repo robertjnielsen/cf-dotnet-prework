@@ -24,3 +24,9 @@ This repository contains my completed prework assignments for the 401 .NET cours
 **Problem Domain**: Create a console application that given a year, determines if that year is a leap year or not.
 
 ![leapYearCalculator](./img/leapYearCalculator.png)
+
+### Problem Three: Perfect Sequence
+
+**Problem Domain**: Given an array, return "Yes" if the sequence is considered a perfect sequence. Otherwise, return "No".
+
+![perfectSequence](./img/perfectSequence.png)
