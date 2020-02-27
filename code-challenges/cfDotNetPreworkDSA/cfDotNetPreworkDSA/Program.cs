@@ -2,6 +2,11 @@
 
 namespace cfDotNetPreworkDSA
 {
+    static class Vars
+    {
+        public static int[] arr1 = { 1, 2, 3 };
+        public static int[] arr2 = { 4, 5, 6 };
+    }
     class Program
     {
         static void Main()
@@ -23,7 +28,7 @@ namespace cfDotNetPreworkDSA
         {
             Console.Clear();
             Console.WriteLine($"{userName}, Please Enter A Number To Choose An Application...\n");
-            Console.Write("1: Array Max Result \n2: Leap Year Calculator \n3: Quit Application \n");
+            Console.Write("1: Array Max Result \n2: Leap Year Calculator \n3: Perfect Sequence \n4: Quit Application \n");
             Console.Write("\nPlease enter a menu option:  ");
 
             int menuChoice;
@@ -38,6 +43,9 @@ namespace cfDotNetPreworkDSA
                         LeapYearCalculator(userName);
                         break;
                     case 3:
+                        PerfectSequence(Vars.arr1, userName);
+                        break;
+                    case 4:
                         Environment.Exit(0);
                         break;
                     default:
@@ -248,7 +256,7 @@ namespace cfDotNetPreworkDSA
             }
         }
 
-        static void PerfectSequence(int[] arr)
+        static void PerfectSequence(int[] arr, string userName)
         {
             int sum = 0;
             int prod = 1;
@@ -259,11 +267,46 @@ namespace cfDotNetPreworkDSA
             }
             if (sum == prod)
             {
-                Console.WriteLine("Yes");
+                Console.WriteLine("The input array is a perfect sequence.");
             }
             else
             {
-                Console.WriteLine("No");
+                Console.WriteLine("The input array is NOT a perfect sequence.");
+            }
+            Console.Write("\nPress (ENTER / RETURN) to continue. ");
+            Console.ReadLine();
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Would you like to run this application again?\n");
+                Console.WriteLine("1: Run Again \n2: Main Menu \n3: Quit Application\n");
+                Console.Write("Enter a menu number:  ");
+                int playAgain;
+                if (int.TryParse(Console.ReadLine(), out playAgain))
+                {
+                    switch (playAgain)
+                    {
+                        case 1:
+                            PerfectSequence(Vars.arr1, userName);
+                            break;
+                        case 2:
+                            MainMenu(userName);
+                            break;
+                        case 3:
+                            Environment.Exit(0);
+                            break;
+                        default:
+                            Console.WriteLine("Let's try this again...");
+                            Console.ReadLine();
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Let's try this again...");
+                    Console.ReadLine();
+                }
             }
         }
     }
