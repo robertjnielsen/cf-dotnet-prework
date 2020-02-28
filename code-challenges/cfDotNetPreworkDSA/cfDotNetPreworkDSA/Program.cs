@@ -6,13 +6,15 @@ namespace cfDotNetPreworkDSA
     {
         public static int[] arr1 = { 1, 2, 3 };
         public static int[] arr2 = { 4, 5, 6 };
+        public static int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
     }
     class Program
     {
         static void Main()
         {
-            string userName = GreetUser();
-            MainMenu(userName);
+            //string userName = GreetUser();
+            //MainMenu(userName);
+            SumOfRows(Vars.myArray);
         }
 
         static string GreetUser()
@@ -308,6 +310,26 @@ namespace cfDotNetPreworkDSA
                     Console.ReadLine();
                 }
             }
+        }
+
+        static void SumOfRows(int[,] arr)
+        {
+            int rows = arr.GetLength(0);
+            int columns = arr.GetLength(1);
+
+            int[] resultsArray = new int[rows];
+
+            for (int i = 0; i < rows; i++)
+            {
+                int temp = 0;
+                for (int j = 0; j < columns; j++)
+                {
+                    temp += arr[i, j];
+                }
+                resultsArray[i] = temp;
+            }
+
+            Console.Write($"The results array is: [{resultsArray[0]}, {resultsArray[1]}, {resultsArray[2]}]");
         }
     }
 }
