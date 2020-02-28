@@ -12,9 +12,8 @@ namespace cfDotNetPreworkDSA
     {
         static void Main()
         {
-            //string userName = GreetUser();
-            //MainMenu(userName);
-            SumOfRows(Vars.myArray);
+            string userName = GreetUser();
+            MainMenu(userName);
         }
 
         static string GreetUser()
@@ -30,7 +29,7 @@ namespace cfDotNetPreworkDSA
         {
             Console.Clear();
             Console.WriteLine($"{userName}, Please Enter A Number To Choose An Application...\n");
-            Console.Write("1: Array Max Result \n2: Leap Year Calculator \n3: Perfect Sequence \n4: Quit Application \n");
+            Console.Write("1: Array Max Result \n2: Leap Year Calculator \n3: Perfect Sequence \n4: Sum Of Rows \n5: Quit Application \n");
             Console.Write("\nPlease enter a menu option:  ");
 
             int menuChoice;
@@ -48,6 +47,9 @@ namespace cfDotNetPreworkDSA
                         PerfectSequence(Vars.arr1, userName);
                         break;
                     case 4:
+                        SumOfRows(Vars.myArray, userName);
+                        break;
+                    case 5:
                         Environment.Exit(0);
                         break;
                     default:
@@ -150,7 +152,7 @@ namespace cfDotNetPreworkDSA
 
             Console.WriteLine();
             Console.WriteLine($"{userName}, your score is: {score}");
-            Console.WriteLine("Press (ENTER / RETURN) to continue...");
+            Console.WriteLine("\nPress (ENTER / RETURN) to continue...");
             Console.ReadLine();
 
             while (true)
@@ -260,6 +262,7 @@ namespace cfDotNetPreworkDSA
 
         static void PerfectSequence(int[] arr, string userName)
         {
+            Console.Clear();
             int sum = 0;
             int prod = 1;
             foreach (int i in arr)
@@ -312,7 +315,7 @@ namespace cfDotNetPreworkDSA
             }
         }
 
-        static void SumOfRows(int[,] arr)
+        static void SumOfRows(int[,] arr, string userName)
         {
             int rows = arr.GetLength(0);
             int columns = arr.GetLength(1);
@@ -329,7 +332,43 @@ namespace cfDotNetPreworkDSA
                 resultsArray[i] = temp;
             }
 
-            Console.Write($"The results array is: [{resultsArray[0]}, {resultsArray[1]}, {resultsArray[2]}]");
+            Console.Clear();
+            Console.WriteLine($"The results array is: [{resultsArray[0]}, {resultsArray[1]}, {resultsArray[2]}]");
+            Console.WriteLine("\nPlease press (ENTER / RETURN) to continue.");
+            Console.ReadLine();
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Would you like to run this application again?\n");
+                Console.WriteLine("1: Run Again \n2: Main Menu \n3: Quit Application\n");
+                Console.Write("Enter a menu number:  ");
+                int playAgain;
+                if (int.TryParse(Console.ReadLine(), out playAgain))
+                {
+                    switch (playAgain)
+                    {
+                        case 1:
+                            SumOfRows(Vars.myArray, userName);
+                            break;
+                        case 2:
+                            MainMenu(userName);
+                            break;
+                        case 3:
+                            Environment.Exit(0);
+                            break;
+                        default:
+                            Console.WriteLine("Let's try this again...");
+                            Console.ReadLine();
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Let's try this again...");
+                    Console.ReadLine();
+                }
+            }
         }
     }
 }
