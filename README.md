@@ -30,3 +30,9 @@ This repository contains my completed prework assignments for the 401 .NET cours
 **Problem Domain**: Given an array, return "Yes" if the sequence is considered a perfect sequence. Otherwise, return "No".
 
 ![perfectSequence](./img/perfectSequence.png)
+
+### Problem Four: Sum Of Rows
+
+**Problem Domain**: Given a matrix of integers, return the sum of each row in a single dimensional array.
+
+![sumOfRows](./img/sumOfRows.png)
